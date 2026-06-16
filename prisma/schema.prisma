@@ -1,0 +1,63 @@
+// Change provider to "postgresql" or "mysql" for production
+// and update DATABASE_URL in .env accordingly.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ── Site-wide configuration (single row, id = 1) ──────────────────────────────
+model SiteConfig {
+  id      Int    @id @default(1)
+  name    String @default("Your Name")
+  tagline String @default("Developer & Creator")
+  bio     String @default("I'm a passionate developer who loves building clean, functional, and beautiful things.")
+  email   String @default("")
+}
+
+// ── Skills ────────────────────────────────────────────────────────────────────
+model Skill {
+  id       Int    @id @default(autoincrement())
+  name     String
+  level    Int    // 0 – 100
+  category String // e.g. "Frontend", "Backend", "Tools"
+  order    Int    @default(0)
+}
+
+// ── Projects ──────────────────────────────────────────────────────────────────
+model Project {
+  id          Int          @id @default(autoincrement())
+  title       String
+  description String
+  icon        String       @default("💻")
+  url         String?
+  order       Int          @default(0)
+  tags        ProjectTag[]
+}
+
+model ProjectTag {
+  id        Int     @id @default(autoincrement())
+  name      String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId Int
+}
+
+// ── Technology tags shown in the Skills section ───────────────────────────────
+model TechTag {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+}
+
+// ── Inbound contact messages ──────────────────────────────────────────────────
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+  read      Boolean  @default(false)
+}

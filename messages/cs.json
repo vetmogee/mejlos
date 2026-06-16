@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "about":    "O mně",
+    "skills":   "Dovednosti",
+    "projects": "Projekty",
+    "contact":  "Kontakt"
+  },
+  "hero": {
+    "greeting": "Ahoj, jsem",
+    "tagline":  "Vývojář & Tvůrce",
+    "cta":      "Zobrazit mé dovednosti"
+  },
+  "about": {
+    "title": "O mně",
+    "bio":   "Jsem vášnivý vývojář, který rád tvoří čisté, funkční a krásné věci. Baví mě řešit složité problémy a neustále se učit nové technologie."
+  },
+  "skills": {
+    "title": "Dovednosti",
+    "tech":  "Technologie, se kterými pracuji"
+  },
+  "projects": {
+    "title":       "Projekty",
+    "viewProject": "Zobrazit projekt →"
+  },
+  "contact": {
+    "title":    "Kontakt",
+    "subtitle": "Máte projekt na mysli? Pojďme si promluvit.",
+    "name":     "Jméno",
+    "email":    "E-mail",
+    "message":  "Zpráva",
+    "send":     "Odeslat zprávu",
+    "sending":  "Odesílání…",
+    "success":  "Zpráva odeslána! Brzy se vám ozvu.",
+    "error":    "Něco se pokazilo. Zkuste to prosím znovu."
+  },
+  "footer": {
+    "rights": "Všechna práva vyhrazena."
+  }
+}

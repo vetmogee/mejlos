@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "about":    "About",
+    "skills":   "Skills",
+    "projects": "Projects",
+    "contact":  "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "tagline":  "Developer & Creator",
+    "cta":      "View My Skills"
+  },
+  "about": {
+    "title": "About Me",
+    "bio":   "I'm a passionate developer who loves building clean, functional, and beautiful things. I enjoy solving hard problems and learning new technologies along the way."
+  },
+  "skills": {
+    "title": "Skills",
+    "tech":  "Technologies I work with"
+  },
+  "projects": {
+    "title":       "Projects",
+    "viewProject": "View project →"
+  },
+  "contact": {
+    "title":    "Contact",
+    "subtitle": "Have a project in mind? Let's talk.",
+    "name":     "Name",
+    "email":    "Email",
+    "message":  "Message",
+    "send":     "Send Message",
+    "sending":  "Sending…",
+    "success":  "Message sent! I'll get back to you soon.",
+    "error":    "Something went wrong. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

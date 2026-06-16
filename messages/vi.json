@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "about":    "Giới thiệu",
+    "skills":   "Kỹ năng",
+    "projects": "Dự án",
+    "contact":  "Liên hệ"
+  },
+  "hero": {
+    "greeting": "Xin chào, tôi là",
+    "tagline":  "Nhà phát triển & Nhà sáng tạo",
+    "cta":      "Xem kỹ năng của tôi"
+  },
+  "about": {
+    "title": "Về tôi",
+    "bio":   "Tôi là một lập trình viên đam mê, thích xây dựng những thứ gọn gàng, chức năng và đẹp mắt. Tôi thích giải quyết các vấn đề khó và luôn học hỏi những công nghệ mới."
+  },
+  "skills": {
+    "title": "Kỹ năng",
+    "tech":  "Công nghệ tôi sử dụng"
+  },
+  "projects": {
+    "title":       "Dự án",
+    "viewProject": "Xem dự án →"
+  },
+  "contact": {
+    "title":    "Liên hệ",
+    "subtitle": "Có dự án trong đầu? Hãy nói chuyện nhé.",
+    "name":     "Tên",
+    "email":    "Email",
+    "message":  "Tin nhắn",
+    "send":     "Gửi tin nhắn",
+    "sending":  "Đang gửi…",
+    "success":  "Tin nhắn đã gửi! Tôi sẽ liên hệ lại sớm.",
+    "error":    "Đã xảy ra lỗi. Vui lòng thử lại."
+  },
+  "footer": {
+    "rights": "Bản quyền được bảo lưu."
+  }
+}
