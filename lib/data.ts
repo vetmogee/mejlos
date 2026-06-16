@@ -3,10 +3,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const siteConfig = {
-  name:    'Your Name',
-  tagline: 'Developer & Creator',
-  bio:     "I'm a passionate developer who loves building clean, functional, and beautiful things. I enjoy solving hard problems and learning new technologies along the way.",
-  email:   'you@example.com',
+  name:  'Duc Anh Nguyen',
+  email: 'leducthao12345@seznam.cz',
 }
 
 // ── Skills ────────────────────────────────────────────────────────────────────

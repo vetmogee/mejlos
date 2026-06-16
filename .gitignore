@@ -87,6 +87,10 @@ web_modules/
 .next
 out
 
+# Prisma (DB removed — these are dead but kept as a safeguard)
+prisma/dev.db
+prisma/*.db
+
 # Nuxt.js build / generate output
 .nuxt
 dist

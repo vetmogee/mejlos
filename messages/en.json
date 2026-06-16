@@ -28,10 +28,7 @@
     "name":     "Name",
     "email":    "Email",
     "message":  "Message",
-    "send":     "Send Message",
-    "sending":  "Sending…",
-    "success":  "Message sent! I'll get back to you soon.",
-    "error":    "Something went wrong. Please try again."
+    "send":     "Send Message"
   },
   "footer": {
     "rights": "All rights reserved."

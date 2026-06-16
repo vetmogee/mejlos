@@ -28,10 +28,7 @@
     "name":     "Jméno",
     "email":    "E-mail",
     "message":  "Zpráva",
-    "send":     "Odeslat zprávu",
-    "sending":  "Odesílání…",
-    "success":  "Zpráva odeslána! Brzy se vám ozvu.",
-    "error":    "Něco se pokazilo. Zkuste to prosím znovu."
+    "send":     "Odeslat zprávu"
   },
   "footer": {
     "rights": "Všechna práva vyhrazena."

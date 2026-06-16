@@ -28,10 +28,7 @@
     "name":     "Tên",
     "email":    "Email",
     "message":  "Tin nhắn",
-    "send":     "Gửi tin nhắn",
-    "sending":  "Đang gửi…",
-    "success":  "Tin nhắn đã gửi! Tôi sẽ liên hệ lại sớm.",
-    "error":    "Đã xảy ra lỗi. Vui lòng thử lại."
+    "send":     "Gửi tin nhắn"
   },
   "footer": {
     "rights": "Bản quyền được bảo lưu."
