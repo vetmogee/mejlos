@@ -25,9 +25,11 @@ export default function NavBar({ name }: { name: string }) {
   }, [])
 
   return (
-    <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-bg/70 border-b border-border">
-      <nav className="max-w-5xl mx-auto px-8 py-4 flex justify-between items-center">
-        <span className="font-bold text-lg bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">
+    <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+      <nav className="w-full max-w-3xl flex justify-between items-center px-6 py-3 rounded-2xl
+        backdrop-blur-xl bg-white/5 border border-white/10
+        shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]">
+        <span className="font-bold text-lg bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent select-none">
           {name}
         </span>
         <div className="flex items-center gap-6">
@@ -36,7 +38,11 @@ export default function NavBar({ name }: { name: string }) {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className={`text-sm transition-colors ${active === l.href.slice(1) ? 'text-white' : 'text-muted hover:text-white'}`}
+                  className={`text-sm transition-all duration-200 ${
+                    active === l.href.slice(1)
+                      ? 'text-white drop-shadow-[0_0_8px_rgba(124,111,255,0.8)]'
+                      : 'text-muted hover:text-white'
+                  }`}
                 >
                   {l.label}
                 </a>

@@ -10,3 +10,9 @@ body {
   background-color: #0a0a0f;
   color: #e8e8f0;
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(2deg); }
+  66%       { transform: translateY(7px) rotate(-1deg); }
+}
