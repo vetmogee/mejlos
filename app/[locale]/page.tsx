@@ -7,6 +7,7 @@ import About           from '@/components/About'
 import SkillsSection   from '@/components/SkillsSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import Contact         from '@/components/Contact'
+import Footer          from '@/components/Footer'
 
 export default async function Page() {
   const t = await getTranslations('footer')
@@ -21,9 +22,7 @@ export default async function Page() {
         <ProjectsSection projects={projects} />
         <Contact email={siteConfig.email} />
       </main>
-      <footer className="bg-bg2 border-t border-border text-center py-8 text-muted text-sm">
-        &copy; {new Date().getFullYear()} {siteConfig.name}. {t('rights')}
-      </footer>
+      <Footer name={siteConfig.name} rights={t('rights')} />
     </>
   )
 }

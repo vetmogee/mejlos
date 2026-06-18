@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import LanguageSwitcher from './LanguageSwitcher'
 
 export default function NavBar({ name }: { name: string }) {
   const t = useTranslations('nav')
@@ -36,48 +35,42 @@ export default function NavBar({ name }: { name: string }) {
           </span>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-6">
-            <ul className="flex gap-6">
-              {links.map(l => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    className={`text-sm transition-all duration-200 ${
-                      active === l.href.slice(1)
-                        ? 'text-white drop-shadow-[0_0_8px_rgba(124,111,255,0.8)]'
-                        : 'text-muted hover:text-white'
-                    }`}
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <LanguageSwitcher />
-          </div>
+          <ul className="hidden md:flex gap-6">
+            {links.map(l => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className={`text-sm transition-all duration-200 ${
+                    active === l.href.slice(1)
+                      ? 'text-white drop-shadow-[0_0_8px_rgba(124,111,255,0.8)]'
+                      : 'text-muted hover:text-white'
+                  }`}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-          {/* Mobile: language switcher + hamburger */}
-          <div className="flex md:hidden items-center gap-3">
-            <LanguageSwitcher />
-            <button
-              onClick={() => setMenuOpen(o => !o)}
-              className="p-1.5 rounded-lg text-muted hover:text-white transition-colors"
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? (
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <line x1="4" y1="4" x2="16" y2="16" />
-                  <line x1="16" y1="4" x2="4" y2="16" />
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <line x1="3" y1="6" x2="17" y2="6" />
-                  <line x1="3" y1="10" x2="17" y2="10" />
-                  <line x1="3" y1="14" x2="17" y2="14" />
-                </svg>
-              )}
-            </button>
-          </div>
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(o => !o)}
+            className="flex md:hidden p-1.5 rounded-lg text-muted hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="4" y1="4" x2="16" y2="16" />
+                <line x1="16" y1="4" x2="4" y2="16" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="3" y1="6" x2="17" y2="6" />
+                <line x1="3" y1="10" x2="17" y2="10" />
+                <line x1="3" y1="14" x2="17" y2="14" />
+              </svg>
+            )}
+          </button>
         </nav>
 
         {/* Mobile dropdown */}
