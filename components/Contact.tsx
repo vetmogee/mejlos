@@ -29,7 +29,7 @@ export default function Contact({ email }: { email: string }) {
         <p className="text-center text-muted mb-10">{t('subtitle')}</p>
 
         <form onSubmit={handleSubmit} className="max-w-xl mx-auto flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input className={inputCls} placeholder={t('name')}  value={form.name}    onChange={set('name')}    required />
             <input className={inputCls} placeholder={t('email')} value={form.email}   onChange={set('email')}   type="email" required />
           </div>
