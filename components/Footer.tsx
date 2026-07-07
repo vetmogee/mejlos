@@ -56,7 +56,7 @@ export default function Footer({ name, rights }: { name: string; rights: string 
                   key={l.code}
                   onClick={() => switchTo(l.code)}
                   className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                    locale === l.code ? 'text-accent' : 'text-muted hover:text-white'
+                    locale === l.code ? 'text-white' : 'text-muted hover:text-white'
                   }`}
                 >
                   {l.label}

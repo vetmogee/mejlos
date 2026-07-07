@@ -31,8 +31,8 @@ export default function LanguageSwitcher() {
           title={l.title}
           className={`text-xs px-2 py-1 rounded border transition-colors ${
             locale === l.code
-              ? 'border-accent text-accent'
-              : 'border-border text-muted hover:border-muted hover:text-white'
+              ? 'border-white text-white'
+              : 'border-border text-muted hover:border-white hover:text-white'
           }`}
         >
           {l.label}

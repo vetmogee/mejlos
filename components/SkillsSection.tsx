@@ -31,19 +31,19 @@ export default function SkillsSection({ skills, tags }: { skills: Skill[]; tags:
     <section id="skills" className="bg-bg py-24 px-8" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-3">{t('title')}</h2>
-        <div className="w-12 h-0.5 bg-gradient-to-r from-accent to-accent2 mx-auto mb-12 rounded" />
+        <div className="w-12 h-0.5 bg-white mx-auto mb-12 rounded" />
 
         <div className="grid md:grid-cols-3 gap-6 mb-14">
           {categories.map(cat => (
             <div key={cat} className="skill-category bg-surface border border-border rounded-xl p-6">
-              <h3 className="text-accent text-xs font-semibold uppercase tracking-widest mb-5">{cat}</h3>
+              <h3 className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-5">{cat}</h3>
               <div className="flex flex-col gap-4">
                 {skills.filter(s => s.category === cat).map(s => (
                   <div key={s.id}>
                     <span className="text-sm text-white block mb-1">{s.name}</span>
                     <div className="h-1.5 bg-border rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-accent to-accent2 rounded-full transition-[width] duration-[1200ms] ease-out"
+                        className="h-full bg-white rounded-full transition-[width] duration-[1200ms] ease-out"
                         style={{ width: 0 }}
                         data-level={s.level}
                       />
@@ -61,7 +61,7 @@ export default function SkillsSection({ skills, tags }: { skills: Skill[]; tags:
             {tags.map(tag => (
               <span
                 key={tag}
-                className="bg-surface border border-border rounded-full px-4 py-1.5 text-sm text-muted hover:border-accent hover:text-accent transition-colors cursor-default"
+                className="bg-surface border border-border rounded-full px-4 py-1.5 text-sm text-muted hover:border-white hover:text-white transition-colors cursor-default"
               >
                 {tag}
               </span>

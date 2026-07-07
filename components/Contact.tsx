@@ -19,13 +19,13 @@ export default function Contact({ email }: { email: string }) {
   }
 
   const inputCls =
-    'w-full bg-surface border border-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-muted'
+    'w-full bg-surface border border-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder:text-muted'
 
   return (
     <section id="contact" className="bg-bg py-24 px-8">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-3">{t('title')}</h2>
-        <div className="w-12 h-0.5 bg-gradient-to-r from-accent to-accent2 mx-auto mb-4 rounded" />
+        <div className="w-12 h-0.5 bg-white mx-auto mb-4 rounded" />
         <p className="text-center text-muted mb-10">{t('subtitle')}</p>
 
         <form onSubmit={handleSubmit} className="max-w-xl mx-auto flex flex-col gap-4">
@@ -36,7 +36,7 @@ export default function Contact({ email }: { email: string }) {
           <textarea className={`${inputCls} resize-y`} placeholder={t('message')} rows={5} value={form.message} onChange={set('message')} required />
           <button
             type="submit"
-            className="self-start px-8 py-3 rounded-full bg-gradient-to-r from-accent to-accent2 text-white font-semibold hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(124,111,255,0.4)] transition-all"
+            className="self-start px-8 py-3 rounded-full bg-white text-black font-semibold hover:-translate-y-0.5 hover:bg-white/90 transition-all"
           >
             {t('send')}
           </button>

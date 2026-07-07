@@ -8,13 +8,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg:      '#0a0a0f',
-        bg2:     '#111118',
-        surface: '#16161f',
-        border:  '#2a2a3a',
-        accent:  '#7c6fff',
-        accent2: '#ff6fb0',
-        muted:   '#888899',
+        bg:      '#000000',
+        bg2:     '#111111',
+        surface: '#1a1a1a',
+        border:  '#2a2a2a',
+        muted:   '#666666',
       },
       fontFamily: {
         sans: ['Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
