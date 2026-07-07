@@ -1,13 +1,13 @@
 import { getTranslations }              from 'next-intl/server'
-import { siteConfig, skills, techTags, projects } from '@/lib/data'
+import { siteConfig, skills, techTags, works } from '@/lib/data'
 
-import NavBar          from '@/components/NavBar'
-import Hero            from '@/components/Hero'
-import About           from '@/components/About'
-import SkillsSection   from '@/components/SkillsSection'
-import ProjectsSection from '@/components/ProjectsSection'
-import Contact         from '@/components/Contact'
-import Footer          from '@/components/Footer'
+import NavBar        from '@/components/NavBar'
+import Hero          from '@/components/Hero'
+import About         from '@/components/About'
+import SkillsSection from '@/components/SkillsSection'
+import WorksCarousel from '@/components/WorksCarousel'
+import Contact       from '@/components/Contact'
+import Footer        from '@/components/Footer'
 
 export default async function Page() {
   const t = await getTranslations('footer')
@@ -18,8 +18,8 @@ export default async function Page() {
       <main>
         <Hero    name={siteConfig.name} />
         <About />
-        <SkillsSection   skills={skills} tags={techTags} />
-        <ProjectsSection projects={projects} />
+        <SkillsSection skills={skills} tags={techTags} />
+        <WorksCarousel works={works} />
         <Contact email={siteConfig.email} />
       </main>
       <Footer name={siteConfig.name} rights={t('rights')} />

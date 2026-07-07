@@ -1,9 +1,9 @@
 {
   "nav": {
-    "about":    "About",
-    "skills":   "Skills",
-    "projects": "Projects",
-    "contact":  "Contact"
+    "about":   "About",
+    "skills":  "Skills",
+    "works":   "Works",
+    "contact": "Contact"
   },
   "hero": {
     "greeting": "Hello, I'm",
@@ -18,9 +18,12 @@
     "title": "Skills",
     "tech":  "Technologies I work with"
   },
-  "projects": {
-    "title":       "Projects",
-    "viewProject": "View project →"
+  "works": {
+    "title":       "Works",
+    "subtitle":    "A selection of things I've built.",
+    "viewProject": "View project →",
+    "viewAll":     "View all works →",
+    "back":        "Back"
   },
   "contact": {
     "title":    "Contact",

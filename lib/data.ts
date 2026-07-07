@@ -27,9 +27,9 @@ export const techTags = [
   'REST API', 'Prisma', 'Framer', 'Figma', 'Git',
 ]
 
-// ── Projects ──────────────────────────────────────────────────────────────────
+// ── Works ─────────────────────────────────────────────────────────────────────
 // url is optional — set to null to hide the link.
-export const projects = [
+export const works = [
   {
     id:          1,
     title:       'Schedula',

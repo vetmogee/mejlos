@@ -1,9 +1,9 @@
 {
   "nav": {
-    "about":    "Giới thiệu",
-    "skills":   "Kỹ năng",
-    "projects": "Dự án",
-    "contact":  "Liên hệ"
+    "about":   "Giới thiệu",
+    "skills":  "Kỹ năng",
+    "works":   "Sản phẩm",
+    "contact": "Liên hệ"
   },
   "hero": {
     "greeting": "Xin chào, tôi là",
@@ -18,9 +18,12 @@
     "title": "Kỹ năng",
     "tech":  "Công nghệ tôi sử dụng"
   },
-  "projects": {
-    "title":       "Dự án",
-    "viewProject": "Xem dự án →"
+  "works": {
+    "title":       "Sản phẩm",
+    "subtitle":    "Một số sản phẩm tôi đã xây dựng.",
+    "viewProject": "Xem dự án →",
+    "viewAll":     "Xem tất cả →",
+    "back":        "Quay lại"
   },
   "contact": {
     "title":    "Liên hệ",

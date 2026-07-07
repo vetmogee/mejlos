@@ -9,10 +9,10 @@ export default function NavBar({ name }: { name: string }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const links = [
-    { href: '#about',    label: t('about') },
-    { href: '#skills',   label: t('skills') },
-    { href: '#projects', label: t('projects') },
-    { href: '#contact',  label: t('contact') },
+    { href: '#about',   label: t('about') },
+    { href: '#skills',  label: t('skills') },
+    { href: '#works',   label: t('works') },
+    { href: '#contact', label: t('contact') },
   ]
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function NavBar({ name }: { name: string }) {
         <nav className="flex justify-between items-center px-6 py-3 rounded-2xl
           backdrop-blur-xl bg-white/5 border border-white/10
           shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]">
-          <span className="font-bold text-lg bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent select-none">
+          <span className="font-bold text-lg text-white select-none">
             {name}
           </span>
 
@@ -42,7 +42,7 @@ export default function NavBar({ name }: { name: string }) {
                   href={l.href}
                   className={`text-sm transition-all duration-200 ${
                     active === l.href.slice(1)
-                      ? 'text-white drop-shadow-[0_0_8px_rgba(124,111,255,0.8)]'
+                      ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]'
                       : 'text-muted hover:text-white'
                   }`}
                 >
@@ -86,7 +86,7 @@ export default function NavBar({ name }: { name: string }) {
                     onClick={() => setMenuOpen(false)}
                     className={`block text-sm transition-all duration-200 ${
                       active === l.href.slice(1)
-                        ? 'text-white drop-shadow-[0_0_8px_rgba(124,111,255,0.8)]'
+                        ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]'
                         : 'text-muted hover:text-white'
                     }`}
                   >

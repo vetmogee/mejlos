@@ -1,9 +1,9 @@
 {
   "nav": {
-    "about":    "O mně",
-    "skills":   "Dovednosti",
-    "projects": "Projekty",
-    "contact":  "Kontakt"
+    "about":   "O mně",
+    "skills":  "Dovednosti",
+    "works":   "Tvorba",
+    "contact": "Kontakt"
   },
   "hero": {
     "greeting": "Ahoj, jsem",
@@ -18,9 +18,12 @@
     "title": "Dovednosti",
     "tech":  "Technologie, se kterými pracuji"
   },
-  "projects": {
-    "title":       "Projekty",
-    "viewProject": "Zobrazit projekt →"
+  "works": {
+    "title":       "Tvorba",
+    "subtitle":    "Výběr věcí, které jsem vytvořil.",
+    "viewProject": "Zobrazit projekt →",
+    "viewAll":     "Zobrazit celou tvorbu →",
+    "back":        "Zpět"
   },
   "contact": {
     "title":    "Kontakt",
