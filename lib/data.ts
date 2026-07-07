@@ -50,20 +50,11 @@ export const works = [
   },
   {
     id:          3,
-    title:       'Oldřich Turner',
-    description: 'Website for a Czech financial advisor specialising in investment real estate and advanced financing.',
-    icon:        '📈',
-    url:         'https://oldrichturner.cz',
-    tags:        ['Next.js', 'Tailwind', 'Design'],
-    order:       3,
-  },
-  {
-    id:          4,
     title:       'Lyniq Studio',
     description: 'Nail care & beauty studio site for a salon in Děčín, CZ — sharp aesthetic, animated UI.',
     icon:        '💅',
     url:         'https://lyniqstudio.cz',
     tags:        ['Next.js', 'Tailwind', 'Animations'],
-    order:       4,
+    order:       3,
   },
 ]
