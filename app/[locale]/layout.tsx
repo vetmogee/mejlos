@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
+import PixelIntro from '@/components/PixelIntro'
 import '../globals.css'
 
 type Props = { children: React.ReactNode; params: { locale: string } }
@@ -32,6 +33,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
+          <PixelIntro />
           {children}
         </NextIntlClientProvider>
       </body>
