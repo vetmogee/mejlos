@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { markIntroFinished } from '@/lib/introSignal'
 
 const WORD = 'mejlos'
 const FALL_DURATION = 5000
@@ -42,6 +43,7 @@ export default function PixelIntro() {
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setDone(true)
+      markIntroFinished()
       return
     }
 
@@ -160,7 +162,10 @@ export default function PixelIntro() {
 
     fadeTimer = setTimeout(() => setFading(true), FALL_DURATION + HOLD_DURATION)
     doneTimer = setTimeout(
-      () => setDone(true),
+      () => {
+        setDone(true)
+        markIntroFinished()
+      },
       FALL_DURATION + HOLD_DURATION + FADE_DURATION,
     )
 
