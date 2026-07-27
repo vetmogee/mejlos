@@ -25,6 +25,15 @@
     "viewAll":     "Xem tất cả →",
     "back":        "Quay lại"
   },
+  "cv": {
+    "title":          "Sơ yếu lý lịch",
+    "experience":     "Kinh nghiệm",
+    "education":      "Học vấn",
+    "certifications": "Giấy phép & chứng chỉ",
+    "skills":         "Kỹ năng",
+    "issued":         "Cấp",
+    "back":           "Quay lại"
+  },
   "contact": {
     "title":    "Liên hệ",
     "subtitle": "Có dự án trong đầu? Hãy nói chuyện nhé.",

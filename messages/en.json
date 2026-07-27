@@ -25,6 +25,15 @@
     "viewAll":     "View all works →",
     "back":        "Back"
   },
+  "cv": {
+    "title":          "CV",
+    "experience":     "Experience",
+    "education":      "Education",
+    "certifications": "Licenses & certifications",
+    "skills":         "Skills",
+    "issued":         "Issued",
+    "back":           "Back"
+  },
   "contact": {
     "title":    "Contact",
     "subtitle": "Have a project in mind? Let's talk.",

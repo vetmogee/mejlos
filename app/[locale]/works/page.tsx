@@ -17,7 +17,7 @@ export default async function WorksPage() {
 
   return (
     <>
-      <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+      <header className="fixed top-[calc(1rem+env(safe-area-inset-top))] inset-x-0 z-50 flex justify-center px-4">
         <nav className="w-full max-w-3xl flex justify-between items-center px-6 py-3 rounded-2xl
           backdrop-blur-xl bg-white/5 border border-white/10
           shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]">

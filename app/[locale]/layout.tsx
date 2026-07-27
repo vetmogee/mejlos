@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import PixelIntro from '@/components/PixelIntro'
+import SlimeCursor from '@/components/SlimeCursor'
 import '../globals.css'
 
 type Props = { children: React.ReactNode; params: { locale: string } }
@@ -16,6 +17,13 @@ export const metadata: Metadata = {
     description: 'Portfolio of Duc Anh Nguyen — full-stack developer specialising in Next.js, Tailwind, Node.js and crafting beautiful UIs.',
     type: 'website',
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#000000',
 }
 
 export function generateStaticParams() {
@@ -32,10 +40,19 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
   return (
     <html lang={locale}>
       <body>
+        {/* Runs during HTML parse, before Safari restores the previous
+            scroll position: every full load starts at the top, where the
+            document-anchored intro overlay plays. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `history.scrollRestoration = 'manual'`,
+          }}
+        />
         <NextIntlClientProvider messages={messages}>
           <PixelIntro />
           {children}
         </NextIntlClientProvider>
+        <SlimeCursor />
       </body>
     </html>
   )

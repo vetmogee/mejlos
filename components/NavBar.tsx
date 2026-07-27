@@ -25,7 +25,7 @@ export default function NavBar({ name }: { name: string }) {
   }, [])
 
   return (
-    <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+    <header className="fixed top-[calc(1rem+env(safe-area-inset-top))] inset-x-0 z-50 flex justify-center px-4">
       <div className="w-full max-w-3xl flex flex-col">
         <nav className="flex justify-between items-center px-6 py-3 rounded-2xl
           backdrop-blur-xl bg-white/5 border border-white/10

@@ -9,6 +9,14 @@ const HOLD_DURATION = 700
 const FADE_DURATION = 600
 const SAMPLE_STEP = 5
 const RAIN_COUNT = 70
+// Extra canvas size beyond the physical screen (total, split per edge) so
+// coverage never depends on how mobile Safari sizes its viewport.
+const OVERSCAN = 320
+// While the intro plays, the page sits scrolled this far down. iOS Safari
+// only draws content behind the top status bar once it has scrolled past
+// the viewport top — nothing above document y=0 is ever painted — so the
+// canvas's top strip has to be real, scrolled-past document content.
+const RUNWAY = OVERSCAN / 2
 
 type LetterPixel = {
   x: number
@@ -38,6 +46,20 @@ export default function PixelIntro() {
   const [fading, setFading] = useState(false)
   const [done, setDone] = useState(false)
 
+  // Safari (especially iOS) restores the page from the back-forward cache
+  // when returning to the tab or navigating back — no reload happens, so
+  // without this the intro only ever plays on a cold load.
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) {
+        setFading(false)
+        setDone(false)
+      }
+    }
+    window.addEventListener('pageshow', onPageShow)
+    return () => window.removeEventListener('pageshow', onPageShow)
+  }, [])
+
   useEffect(() => {
     if (done) return
 
@@ -52,22 +74,47 @@ export default function PixelIntro() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const prevOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    // Scroll lock without body overflow:hidden — iOS 26 Safari stops
+    // rendering page content behind its toolbars when the page is made
+    // non-scrollable that way. touch-action blocks touch panning; the
+    // scroll listener snaps back anything else (e.g. desktop wheel).
+    const prevTouchAction = document.documentElement.style.touchAction
+    document.documentElement.style.touchAction = 'none'
+    // Pin the page RUNWAY px down (the in-flow spacer in the JSX keeps the
+    // real content at its natural visual position despite this) so the
+    // canvas's top strip counts as scrolled-past content.
+    // 'instant' so the page's scroll-behavior:smooth doesn't animate it.
+    const keepRunway = () =>
+      window.scrollTo({ top: RUNWAY, left: 0, behavior: 'instant' })
+    window.addEventListener('scroll', keepRunway)
+    keepRunway()
 
-    let width = window.innerWidth
-    let height = window.innerHeight
+    let width = 0
+    let height = 0
     let letterPixels: LetterPixel[] = []
     let rainPixels: RainPixel[] = []
+    let fadeStarted = false
 
     function buildScene() {
-      const dpr = window.devicePixelRatio || 1
-      width = window.innerWidth
-      height = window.innerHeight
+      // Cap dpr: the oversized canvas would otherwise get a huge buffer.
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      // Vertical: size from the physical screen plus overscan, never the
+      // viewport — mobile Safari resizes its viewport around its toolbars,
+      // so overshoot the top and bottom screen edges instead.
+      // Horizontal: exactly the viewport width; there is no side chrome,
+      // and right-side bleed would add horizontal scroll range now that
+      // the overlay is in-flow (absolute, not fixed).
+      width = document.documentElement.clientWidth
+      height = Math.max(window.innerHeight, screen.height) + OVERSCAN
       canvas!.width = width * dpr
       canvas!.height = height * dpr
       canvas!.style.width = `${width}px`
       canvas!.style.height = `${height}px`
+      // Anchored at the document top while the intro plays (rows [0,
+      // RUNWAY) are the scrolled-past strip behind the status bar);
+      // shifted up once the fade begins and scroll returns to 0.
+      canvas!.style.top = fadeStarted ? `${-RUNWAY}px` : '0px'
+      canvas!.style.left = '0px'
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0)
 
       const offscreen = document.createElement('canvas')
@@ -79,7 +126,9 @@ export default function PixelIntro() {
       offCtx.textAlign = 'center'
       offCtx.textBaseline = 'middle'
       offCtx.fillStyle = '#fff'
-      offCtx.fillText(WORD, width / 2, height / 2)
+      // The viewport is pinned RUNWAY px down while the intro plays, so
+      // the visible centre line is RUNWAY + innerHeight/2 in canvas space.
+      offCtx.fillText(WORD, width / 2, RUNWAY + window.innerHeight / 2)
 
       const { data } = offCtx.getImageData(0, 0, width, height)
       letterPixels = []
@@ -119,15 +168,19 @@ export default function PixelIntro() {
     window.addEventListener('resize', handleResize)
 
     let rafId: number
-    let fadeTimer: ReturnType<typeof setTimeout>
-    let doneTimer: ReturnType<typeof setTimeout>
-    const start = performance.now()
-    let lastTime = start
+    let elapsed = 0
+    let lastTime: number | null = null
 
     function frame(now: number) {
-      const elapsed = now - start
-      const dt = (now - lastTime) / 1000
+      if (lastTime === null) lastTime = now
+      // Advance the timeline only by rendered-frame time, capped per step:
+      // rAF doesn't fire while the page is hidden (e.g. Safari restoring
+      // the tab behind its launch snapshot on app restart), and wall-clock
+      // timers would finish the intro before anyone ever saw a frame.
+      const step = Math.min(now - lastTime, 100)
       lastTime = now
+      elapsed += step
+      const dt = step / 1000
 
       ctx!.clearRect(0, 0, width, height)
       ctx!.fillStyle = '#000'
@@ -153,42 +206,63 @@ export default function PixelIntro() {
       }
       ctx!.globalAlpha = 1
 
-      if (elapsed < FALL_DURATION + HOLD_DURATION + FADE_DURATION) {
-        rafId = requestAnimationFrame(frame)
+      if (!fadeStarted && elapsed >= FALL_DURATION + HOLD_DURATION) {
+        fadeStarted = true
+        // Hand scrolling back while the overlay is still fully opaque:
+        // return to the real top, shift the canvas up by the runway so
+        // nothing visibly moves, and let React drop the spacer in the
+        // same commit that starts the fade — the page underneath gets
+        // revealed at its natural position.
+        window.removeEventListener('scroll', keepRunway)
+        document.documentElement.style.touchAction = prevTouchAction
+        canvas!.style.top = `${-RUNWAY}px`
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+        setFading(true)
       }
+      if (elapsed >= FALL_DURATION + HOLD_DURATION + FADE_DURATION) {
+        setDone(true)
+        markIntroFinished()
+        return
+      }
+      rafId = requestAnimationFrame(frame)
     }
 
     rafId = requestAnimationFrame(frame)
 
-    fadeTimer = setTimeout(() => setFading(true), FALL_DURATION + HOLD_DURATION)
-    doneTimer = setTimeout(
-      () => {
-        setDone(true)
-        markIntroFinished()
-      },
-      FALL_DURATION + HOLD_DURATION + FADE_DURATION,
-    )
-
     return () => {
       cancelAnimationFrame(rafId)
-      clearTimeout(fadeTimer)
-      clearTimeout(doneTimer)
       window.removeEventListener('resize', handleResize)
-      document.body.style.overflow = prevOverflow
+      if (!fadeStarted) {
+        // Unmounted mid-intro: undo the pin and land at the real top.
+        window.removeEventListener('scroll', keepRunway)
+        document.documentElement.style.touchAction = prevTouchAction
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      }
     }
   }, [done])
 
   if (done) return null
 
+  // Document-anchored, NOT position:fixed: iOS 26 Safari clips fixed
+  // elements to the layout viewport and won't draw them behind its
+  // toolbars/status bar, while in-flow content renders edge-to-edge.
   return (
-    <div
-      className="fixed inset-0 z-[100] transition-opacity ease-out pointer-events-none"
-      style={{
-        opacity: fading ? 0 : 1,
-        transitionDuration: `${FADE_DURATION}ms`,
-      }}
-    >
-      <canvas ref={canvasRef} className="block w-full h-full" />
-    </div>
+    <>
+      {/* In-flow runway spacer matching the pinned scroll offset; removed
+          in the same commit that starts the fade, after scroll returns
+          to 0, so the page never visibly shifts. */}
+      {!fading && <div style={{ height: RUNWAY }} aria-hidden />}
+      <div
+        className="absolute inset-0 z-[100] bg-black transition-opacity ease-out pointer-events-none"
+        style={{
+          opacity: fading ? 0 : 1,
+          transitionDuration: `${FADE_DURATION}ms`,
+        }}
+      >
+        {/* Oversized canvas bleeding below the screen and into the runway
+            strip above the pinned viewport. Offset + size set in JS. */}
+        <canvas ref={canvasRef} className="absolute" />
+      </div>
+    </>
   )
 }

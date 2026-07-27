@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 
-type Work = { id: number; title: string; description: string; icon: string; url?: string | null; tags: string[] }
+type Work = { id: number; title: string; description: string; icon: string; logo?: string | null; url?: string | null; tags: string[] }
 
 export default async function WorksGrid({ works }: { works: Work[] }) {
   const t = await getTranslations('works')
@@ -12,7 +12,11 @@ export default async function WorksGrid({ works }: { works: Work[] }) {
           key={w.id}
           className="bg-surface border border-border rounded-xl p-6 hover:border-white hover:-translate-y-1 transition-all"
         >
-          <div className="text-3xl mb-4">{w.icon}</div>
+          {w.logo ? (
+            <img src={w.logo} alt={`${w.title} logo`} className="h-9 w-auto mb-4 brightness-0 invert" />
+          ) : (
+            <div className="text-3xl mb-4">{w.icon}</div>
+          )}
           <h3 className="font-semibold text-lg mb-2">{w.title}</h3>
           <p className="text-muted text-sm leading-relaxed mb-4">{w.description}</p>
           <div className="flex flex-wrap gap-1.5">

@@ -27,14 +27,68 @@ export const techTags = [
   'REST API', 'Prisma', 'Framer', 'Figma', 'Git',
 ]
 
+// ── CV ────────────────────────────────────────────────────────────────────────
+export const cv = {
+  linkedin: 'https://www.linkedin.com/in/duc-anh-nguyen-ab0845290/',
+  experience: [
+    {
+      role:     'Web Developer and Administrator',
+      company:  'Freelance',
+      type:     'Freelance',
+      period:   'Oct 2025 – Present',
+      location: 'Remote',
+      points:   ['Lovable web building and management', 'Prompt engineer'],
+      tags:     ['Cursor AI', 'Lovable'],
+    },
+    {
+      role:     'Sales Employee',
+      company:  'Freelance',
+      type:     'Freelance',
+      period:   'Sep 2025 – Present',
+      location: 'Remote',
+      points:   ['Frontend junior', 'Web sales'],
+      tags:     ['Next.js', 'Prisma ORM'],
+    },
+    {
+      role:     'Contact Manager',
+      company:  'Webforte',
+      type:     'Freelance',
+      period:   'Jun 2025 – Sep 2025',
+      location: 'Remote',
+      points:   ['Excel contact management', 'Shopify inventory management'],
+      tags:     ['Microsoft Excel', 'Shopify'],
+    },
+  ],
+  education: [
+    {
+      school: 'SPSUL',
+      field:  'Information Technology',
+      period: 'Sep 2022 – Sep 2026',
+      points: [
+        'Learnt coding in C#, basics of Cisco netacad networking, building multiple React and Next.js web apps, basics in Unity',
+      ],
+      tags:   ['Next.js', 'SQL'],
+    },
+  ],
+  certifications: [
+    {
+      name:   'Cambridge English: Advanced (CAE)',
+      issuer: 'Cambridge English',
+      issued: 'Mar 2026',
+    },
+  ],
+}
+
 // ── Works ─────────────────────────────────────────────────────────────────────
 // url is optional — set to null to hide the link.
+// logo is an image in /public shown instead of the emoji icon when set.
 export const works = [
   {
     id:          1,
     title:       'Schedula',
     description: 'Salon booking & management platform. Customers browse and book appointments; salon owners manage calendars, services, and staff.',
     icon:        '📅',
+    logo:        null,
     url:         'https://schedula-murex.vercel.app/',
     tags:        ['Next.js', 'Tailwind', 'Node.js', 'REST API'],
     order:       1,
@@ -44,6 +98,7 @@ export const works = [
     title:       'Fancy Beauty',
     description: 'Premium beauty services website for a salon in the Zurich & Schlieren area of Switzerland.',
     icon:        '✨',
+    logo:        '/fancylogolong-BiBxCGFi.png',
     url:         'https://fancybeauty.ch',
     tags:        ['Next.js', 'Tailwind', 'Design'],
     order:       2,
@@ -53,6 +108,7 @@ export const works = [
     title:       'Lyniq Studio',
     description: 'Nail care & beauty studio site for a salon in Děčín, CZ — sharp aesthetic, animated UI.',
     icon:        '💅',
+    logo:        '/lyniq2.svg',
     url:         'https://lyniqstudio.cz',
     tags:        ['Next.js', 'Tailwind', 'Animations'],
     order:       3,

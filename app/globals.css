@@ -65,6 +65,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* iOS 26 Safari tints its toolbars from explicit html/body backgrounds. */
+  background-color: #000000;
 }
 
 body {
@@ -72,8 +74,9 @@ body {
   color: #e8e8e8;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33%       { transform: translateY(-14px) rotate(2deg); }
-  66%       { transform: translateY(7px) rotate(-1deg); }
+/* SlimeCursor adds this class only on fine-pointer devices; the slime blob
+   replaces the native cursor everywhere, including links and inputs. */
+html.has-slime-cursor,
+html.has-slime-cursor * {
+  cursor: none !important;
 }

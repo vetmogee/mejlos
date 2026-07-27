@@ -25,6 +25,15 @@
     "viewAll":     "Zobrazit celou tvorbu →",
     "back":        "Zpět"
   },
+  "cv": {
+    "title":          "Životopis",
+    "experience":     "Zkušenosti",
+    "education":      "Vzdělání",
+    "certifications": "Licence a certifikace",
+    "skills":         "Dovednosti",
+    "issued":         "Vydáno",
+    "back":           "Zpět"
+  },
   "contact": {
     "title":    "Kontakt",
     "subtitle": "Máte projekt na mysli? Pojďme si promluvit.",

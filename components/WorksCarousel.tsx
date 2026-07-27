@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 
-type Work = { id: number; title: string; description: string; icon: string; url?: string | null; tags: string[] }
+type Work = { id: number; title: string; description: string; icon: string; logo?: string | null; url?: string | null; tags: string[] }
 
 const AUTOPLAY_MS = 5000
 
@@ -81,7 +81,11 @@ export default function WorksCarousel({ works }: { works: Work[] }) {
                   ${pos ?? 'opacity-0 [transform:scale(0.5)]'}
                   ${isFront ? 'border-white/30 shadow-[0_16px_48px_rgba(0,0,0,0.6)]' : 'cursor-pointer'}`}
               >
-                <div className="text-4xl mb-4">{w.icon}</div>
+                {w.logo ? (
+                  <img src={w.logo} alt={`${w.title} logo`} className="h-10 w-auto mb-4 brightness-0 invert" />
+                ) : (
+                  <div className="text-4xl mb-4">{w.icon}</div>
+                )}
                 <h3 className="font-semibold text-lg mb-2">{w.title}</h3>
                 <p className="text-muted text-sm leading-relaxed mb-4 line-clamp-4 sm:line-clamp-3">{w.description}</p>
                 <div className="flex flex-wrap justify-center gap-1.5 mt-auto">
