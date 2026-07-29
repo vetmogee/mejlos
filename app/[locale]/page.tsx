@@ -1,5 +1,5 @@
 import { getTranslations }              from 'next-intl/server'
-import { siteConfig, skills, techTags, works } from '@/lib/data'
+import { siteConfig, skills, techTags, works, cv } from '@/lib/data'
 
 import NavBar        from '@/components/NavBar'
 import Hero          from '@/components/Hero'
@@ -20,7 +20,7 @@ export default async function Page() {
         <About />
         <SkillsSection skills={skills} tags={techTags} />
         <WorksCarousel works={works} />
-        <Contact email={siteConfig.email} />
+        <Contact email={siteConfig.contactEmail} linkedin={cv.linkedin} />
       </main>
       <Footer name={siteConfig.name} rights={t('rights')} />
     </>

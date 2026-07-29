@@ -1,46 +1,45 @@
-'use client'
+import { getTranslations } from 'next-intl/server'
 
-import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-
-export default function Contact({ email }: { email: string }) {
-  const t = useTranslations('contact')
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-
-  const set = (k: keyof typeof form) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setForm(f => ({ ...f, [k]: e.target.value }))
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    const subject = encodeURIComponent(`Message from ${form.name}`)
-    const body    = encodeURIComponent(`From: ${form.name} <${form.email}>\n\n${form.message}`)
-    window.open(`mailto:${email}?subject=${subject}&body=${body}`)
-  }
-
-  const inputCls =
-    'w-full bg-surface border border-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder:text-muted'
+export default async function Contact({ email, linkedin }: { email: string; linkedin: string }) {
+  const t = await getTranslations('contact')
 
   return (
     <section id="contact" className="bg-bg py-24 px-8">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-3">{t('title')}</h2>
-        <div className="w-12 h-0.5 bg-white mx-auto mb-4 rounded" />
-        <p className="text-center text-muted mb-10">{t('subtitle')}</p>
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-3">{t('title')}</h2>
+        <div className="w-12 h-0.5 bg-white mx-auto mb-10 rounded" />
+        <p className="text-muted text-lg leading-relaxed max-w-2xl mx-auto mb-12">{t('subtitle')}</p>
 
-        <form onSubmit={handleSubmit} className="max-w-xl mx-auto flex flex-col gap-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input className={inputCls} placeholder={t('name')}  value={form.name}    onChange={set('name')}    required />
-            <input className={inputCls} placeholder={t('email')} value={form.email}   onChange={set('email')}   type="email" required />
-          </div>
-          <textarea className={`${inputCls} resize-y`} placeholder={t('message')} rows={5} value={form.message} onChange={set('message')} required />
-          <button
-            type="submit"
-            className="self-start px-8 py-3 rounded-full bg-white text-black font-semibold hover:-translate-y-0.5 hover:bg-white/90 transition-all"
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={`mailto:${email}`}
+            className="flex items-center gap-3 px-6 py-3 rounded-xl
+              backdrop-blur-md bg-white/5 border border-white/10
+              shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
+              text-muted hover:text-white transition-colors"
           >
-            {t('send')}
-          </button>
-        </form>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m2 7 10 6 10-6" />
+            </svg>
+            <span>{email}</span>
+          </a>
+
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 px-6 py-3 rounded-xl
+              backdrop-blur-md bg-white/5 border border-white/10
+              shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
+              text-muted hover:text-white transition-colors"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
       </div>
     </section>
   )

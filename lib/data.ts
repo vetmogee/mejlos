@@ -3,8 +3,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const siteConfig = {
-  name:  'Duc Anh Nguyen',
-  email: 'leducthao12345@seznam.cz',
+  name:         'Duc Anh Nguyen',
+  email:        'leducthao12345@seznam.cz',
+  contactEmail: 'main@mejlos.com',
 }
 
 // ── Skills ────────────────────────────────────────────────────────────────────
