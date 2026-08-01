@@ -91,7 +91,7 @@ export const works = [
     icon:        '📅',
     logo:        null,
     url:         'https://schedula-murex.vercel.app/',
-    tags:        ['Next.js', 'Tailwind', 'Node.js', 'REST API'],
+    tags:        ['School Project', 'Next.js', 'Tailwind', 'Node.js', 'REST API'],
     order:       1,
   },
   {
@@ -101,7 +101,7 @@ export const works = [
     icon:        '✨',
     logo:        '/fancylogolong-BiBxCGFi.png',
     url:         'https://fancybeauty.ch',
-    tags:        ['Next.js', 'Tailwind', 'Design'],
+    tags:        ['Personal Project', 'Next.js', 'Tailwind', 'Design'],
     order:       2,
   },
   {
@@ -111,7 +111,17 @@ export const works = [
     icon:        '💅',
     logo:        '/lyniq2.svg',
     url:         'https://lyniqstudio.cz',
-    tags:        ['Next.js', 'Tailwind', 'Animations'],
+    tags:        ['Personal Project', 'Next.js', 'Tailwind', 'Animations'],
     order:       3,
+  },
+  {
+    id:          4,
+    title:       'QuickCart POS',
+    description: 'Modern point-of-sale system — product management, sales tracking with detailed reports, and a streamlined checkout.',
+    icon:        '🛒',
+    logo:        null,
+    url:         'https://quickcartpos.vercel.app',
+    tags:        ['School Project', 'Next.js', 'TypeScript', 'Tailwind', 'Supabase'],
+    order:       4,
   },
 ]
