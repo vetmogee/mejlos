@@ -119,7 +119,7 @@ export const works = [
     title:       'QuickCart POS',
     description: 'Modern point-of-sale system — product management, sales tracking with detailed reports, and a streamlined checkout.',
     icon:        '🛒',
-    logo:        null,
+    logo:        '/quickcartposlogonobg.png',
     url:         'https://quickcartpos.vercel.app',
     tags:        ['School Project', 'Next.js', 'TypeScript', 'Tailwind', 'Supabase'],
     order:       4,
