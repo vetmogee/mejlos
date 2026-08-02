@@ -141,3 +141,6 @@ dist
 .vercel
 .env*.local
 *.md
+
+.claude
+claude.md
