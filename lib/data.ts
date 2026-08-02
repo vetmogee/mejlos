@@ -91,7 +91,7 @@ export const works = [
     icon:        '📅',
     logo:        null,
     url:         'https://schedula-murex.vercel.app/',
-    tags:        ['School Project', 'Next.js', 'Tailwind', 'Node.js', 'REST API'],
+    tags:        ['School Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Node.js', 'REST API'],
     order:       1,
   },
   {
@@ -101,7 +101,7 @@ export const works = [
     icon:        '✨',
     logo:        '/fancylogolong-BiBxCGFi.png',
     url:         'https://fancybeauty.ch',
-    tags:        ['Personal Project', 'Next.js', 'Tailwind', 'Design'],
+    tags:        ['Personal Project', 'Vite', 'React', 'TypeScript', 'Tailwind', 'Design'],
     order:       2,
   },
   {
@@ -111,7 +111,7 @@ export const works = [
     icon:        '💅',
     logo:        '/lyniq2.svg',
     url:         'https://lyniqstudio.cz',
-    tags:        ['Personal Project', 'Next.js', 'Tailwind', 'Animations'],
+    tags:        ['Personal Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Animations'],
     order:       3,
   },
   {
@@ -121,7 +121,7 @@ export const works = [
     icon:        '🛒',
     logo:        '/quickcartposlogonobg.png',
     url:         'https://quickcartpos.vercel.app',
-    tags:        ['School Project', 'Next.js', 'TypeScript', 'Tailwind', 'Supabase'],
+    tags:        ['School Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Supabase'],
     order:       4,
   },
 ]
