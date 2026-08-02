@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { markIntroFinished } from '@/lib/introSignal'
+import { usePathname } from '@/i18n/navigation'
+import { isIntroFinished, markIntroFinished } from '@/lib/introSignal'
 
 const WORD = 'mejlos'
 const FALL_DURATION = 5000
@@ -44,7 +45,14 @@ function easeOutCubic(t: number) {
 export default function PixelIntro() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [fading, setFading] = useState(false)
-  const [done, setDone] = useState(false)
+  // Locale-stripped path: no intro on the CV page.
+  const pathname = usePathname()
+  const skipIntro = pathname === '/cv' || pathname.startsWith('/cv/')
+  // Module state survives client-side navigation (e.g. a locale switch
+  // remounts the layout subtree, and this component with it) — only a real
+  // page load resets it, so the intro plays once per load, not per mount.
+  // skipIntro is included so /cv never even server-renders the overlay.
+  const [done, setDone] = useState(() => isIntroFinished() || skipIntro)
 
   // Safari (especially iOS) restores the page from the back-forward cache
   // when returning to the tab or navigating back — no reload happens, so
@@ -61,9 +69,17 @@ export default function PixelIntro() {
   }, [])
 
   useEffect(() => {
-    if (done) return
+    if (done) {
+      // Skipped (e.g. /cv) or already played — either way, release any
+      // listeners waiting on the intro signal. Idempotent.
+      markIntroFinished()
+      return
+    }
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      skipIntro ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       setDone(true)
       markIntroFinished()
       return
@@ -86,7 +102,35 @@ export default function PixelIntro() {
     // 'instant' so the page's scroll-behavior:smooth doesn't animate it.
     const keepRunway = () =>
       window.scrollTo({ top: RUNWAY, left: 0, behavior: 'instant' })
+    // Block scroll input at the source (wheel/trackpad, touch, keyboard) so
+    // nothing moves at all; keepRunway stays as the fallback for whatever
+    // can't be prevented, e.g. dragging the scrollbar thumb.
+    const preventScroll = (e: Event) => e.preventDefault()
+    const scrollKeys = new Set([
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+      'PageUp',
+      'PageDown',
+      'Home',
+      'End',
+      ' ',
+    ])
+    const preventScrollKeys = (e: KeyboardEvent) => {
+      if (scrollKeys.has(e.key)) e.preventDefault()
+    }
     window.addEventListener('scroll', keepRunway)
+    window.addEventListener('wheel', preventScroll, { passive: false })
+    window.addEventListener('touchmove', preventScroll, { passive: false })
+    window.addEventListener('keydown', preventScrollKeys)
+    const unlockScroll = () => {
+      window.removeEventListener('scroll', keepRunway)
+      window.removeEventListener('wheel', preventScroll)
+      window.removeEventListener('touchmove', preventScroll)
+      window.removeEventListener('keydown', preventScrollKeys)
+      document.documentElement.style.touchAction = prevTouchAction
+    }
     keepRunway()
 
     let width = 0
@@ -145,7 +189,7 @@ export default function PixelIntro() {
               delay,
               duration: FALL_DURATION - delay,
               size: SAMPLE_STEP - 1,
-              alpha: 0.75 + Math.random() * 0.25,
+              alpha: 1,
             })
           }
         }
@@ -186,7 +230,7 @@ export default function PixelIntro() {
       ctx!.fillStyle = '#000'
       ctx!.fillRect(0, 0, width, height)
 
-      ctx!.fillStyle = 'rgba(232, 232, 232, 1)'
+      ctx!.fillStyle = '#fff'
       for (const r of rainPixels) {
         r.y += r.speed * dt
         if (r.y > height) {
@@ -213,8 +257,7 @@ export default function PixelIntro() {
         // nothing visibly moves, and let React drop the spacer in the
         // same commit that starts the fade — the page underneath gets
         // revealed at its natural position.
-        window.removeEventListener('scroll', keepRunway)
-        document.documentElement.style.touchAction = prevTouchAction
+        unlockScroll()
         canvas!.style.top = `${-RUNWAY}px`
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
         setFading(true)
@@ -234,12 +277,11 @@ export default function PixelIntro() {
       window.removeEventListener('resize', handleResize)
       if (!fadeStarted) {
         // Unmounted mid-intro: undo the pin and land at the real top.
-        window.removeEventListener('scroll', keepRunway)
-        document.documentElement.style.touchAction = prevTouchAction
+        unlockScroll()
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
       }
     }
-  }, [done])
+  }, [done, skipIntro])
 
   if (done) return null
 
