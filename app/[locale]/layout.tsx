@@ -4,7 +4,6 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import PixelIntro from '@/components/PixelIntro'
-import SlimeCursor from '@/components/SlimeCursor'
 import '../globals.css'
 
 type Props = { children: React.ReactNode; params: { locale: string } }
@@ -52,7 +51,6 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
           <PixelIntro />
           {children}
         </NextIntlClientProvider>
-        <SlimeCursor />
       </body>
     </html>
   )

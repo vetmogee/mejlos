@@ -41,6 +41,9 @@ export default async function CvPage() {
             <a href={cv.linkedin} target="_blank" rel="noreferrer" className="text-muted hover:text-white transition-colors">
               LinkedIn ↗
             </a>
+            <a href={cv.github} target="_blank" rel="noreferrer" className="text-muted hover:text-white transition-colors">
+              Github ↗
+            </a>
           </div>
 
           <section className="mb-14">

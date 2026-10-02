@@ -73,10 +73,3 @@ body {
   background-color: #000000;
   color: #e8e8e8;
 }
-
-/* SlimeCursor adds this class only on fine-pointer devices; the slime blob
-   replaces the native cursor everywhere, including links and inputs. */
-html.has-slime-cursor,
-html.has-slime-cursor * {
-  cursor: none !important;
-}

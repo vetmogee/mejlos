@@ -31,6 +31,7 @@ export const techTags = [
 // ── CV ────────────────────────────────────────────────────────────────────────
 export const cv = {
   linkedin: 'https://www.linkedin.com/in/duc-anh-nguyen-ab0845290/',
+  github:   'https://github.com/vetmogee',
   experience: [
     {
       role:     'Web Developer and Administrator',

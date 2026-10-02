@@ -20,7 +20,7 @@ export default async function Page() {
         <About />
         <SkillsSection skills={skills} tags={techTags} />
         <WorksCarousel works={works} />
-        <Contact email={siteConfig.contactEmail} linkedin={cv.linkedin} />
+        <Contact email={siteConfig.contactEmail} linkedin={cv.linkedin} github={cv.github} />
       </main>
       <Footer name={siteConfig.name} rights={t('rights')} />
     </>
