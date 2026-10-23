@@ -2,67 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/poppins-700.woff2?v=2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/playfair-display-700.woff2?v=2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Righteous';
-  src: url('/fonts/righteous-400.woff2?v=2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pacifico';
-  src: url('/fonts/pacifico-400.woff2?v=2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Roboto Mono';
-  src: url('/fonts/roboto-mono-700.woff2?v=2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Oswald';
-  src: url('/fonts/oswald-700.woff2?v=2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Abril Fatface';
-  src: url('/fonts/abril-fatface-400.woff2?v=2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Caveat';
-  src: url('/fonts/caveat-700.woff2?v=2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Orbitron';
-  src: url('/fonts/orbitron-700.woff2?v=2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Merriweather';
-  src: url('/fonts/merriweather-700.woff2?v=2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-
 html {
   scroll-behavior: smooth;
   /* iOS 26 Safari tints its toolbars from explicit html/body backgrounds. */

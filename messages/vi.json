@@ -1,46 +1,19 @@
 {
-  "nav": {
-    "about":   "Giới thiệu",
-    "skills":  "Kỹ năng",
-    "works":   "Sản phẩm",
-    "contact": "Liên hệ"
-  },
   "hero": {
     "greeting": "Xin chào, tôi là",
-    "tagline":  "Nhà phát triển & Nhà sáng tạo",
-    "cta":      "Xem kỹ năng của tôi"
+    "tagline": "Nhà phát triển & Nhà sáng tạo"
   },
   "about": {
-    "title": "Về tôi",
-    "bio":   "Tôi là một lập trình viên đam mê, thích xây dựng những thứ gọn gàng, chức năng và đẹp mắt. Tôi thích giải quyết các vấn đề khó và luôn học hỏi những công nghệ mới."
-  },
-  "skills": {
-    "title": "Kỹ năng",
-    "tech":  "Công nghệ tôi sử dụng"
+    "bio": "Tôi là một lập trình viên đam mê, thích xây dựng những thứ gọn gàng, chức năng và đẹp mắt. Tôi thích giải quyết các vấn đề khó và luôn học hỏi những công nghệ mới."
   },
   "works": {
-    "title":       "Sản phẩm",
-    "subtitle":    "Một số sản phẩm tôi đã xây dựng.",
-    "viewProject": "Xem dự án →",
-    "viewAll":     "Xem tất cả →",
-    "back":        "Quay lại"
+    "title": "Sản phẩm"
   },
   "cv": {
-    "title":          "Sơ yếu lý lịch",
-    "experience":     "Kinh nghiệm",
-    "education":      "Học vấn",
+    "experience": "Kinh nghiệm",
+    "education": "Học vấn",
     "certifications": "Giấy phép & chứng chỉ",
-    "skills":         "Kỹ năng",
-    "issued":         "Cấp",
-    "back":           "Quay lại"
-  },
-  "contact": {
-    "title":    "Liên hệ",
-    "subtitle": "Có dự án trong đầu? Hãy nói chuyện nhé.",
-    "name":     "Tên",
-    "email":    "Email",
-    "message":  "Tin nhắn",
-    "send":     "Gửi tin nhắn"
+    "skills": "Kỹ năng"
   },
   "footer": {
     "rights": "Bản quyền được bảo lưu. Yeu Ha My"

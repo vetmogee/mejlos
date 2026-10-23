@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import PixelIntro from '@/components/PixelIntro'
+import { siteConfig, cv } from '@/lib/data'
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 import '../globals.css'
 
 type Props = { children: React.ReactNode; params: { locale: string } }
@@ -35,21 +37,20 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
   }
 
   const messages = await getMessages()
+  const t = await getTranslations('footer')
 
   return (
     <html lang={locale}>
       <body>
-        {/* Runs during HTML parse, before Safari restores the previous
-            scroll position: every full load starts at the top, where the
-            document-anchored intro overlay plays. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `history.scrollRestoration = 'manual'`,
-          }}
-        />
         <NextIntlClientProvider messages={messages}>
-          <PixelIntro />
-          {children}
+          {/* The page fits a single screen: the shell is exactly the
+              dynamic viewport tall and clips anything that would overflow,
+              so the document itself never scrolls. */}
+          <div className="h-dvh flex flex-col overflow-hidden">
+            <NavBar nickname={siteConfig.nickname} email={siteConfig.contactEmail} linkedin={cv.linkedin} github={cv.github} />
+            <main className="flex-1 min-h-0 overflow-hidden">{children}</main>
+            <Footer name={siteConfig.name} rights={t('rights')} />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

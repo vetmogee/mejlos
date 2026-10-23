@@ -23,16 +23,16 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex gap-1.5">
+    <div className="flex gap-2">
       {locales.map(l => (
         <button
           key={l.code}
           onClick={() => switchTo(l.code)}
           title={l.title}
-          className={`text-xs px-2 py-1 rounded border transition-colors ${
+          className={`text-xs transition-colors ${
             locale === l.code
-              ? 'border-white text-white'
-              : 'border-border text-muted hover:border-white hover:text-white'
+              ? 'text-white'
+              : 'text-muted hover:text-white'
           }`}
         >
           {l.label}

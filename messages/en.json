@@ -1,46 +1,19 @@
 {
-  "nav": {
-    "about":   "About",
-    "skills":  "Skills",
-    "works":   "Works",
-    "contact": "Contact"
-  },
   "hero": {
     "greeting": "Hello, I'm",
-    "tagline":  "Developer & Creator",
-    "cta":      "View My Skills"
+    "tagline": "Developer & Creator"
   },
   "about": {
-    "title": "About Me",
-    "bio":   "I'm a passionate developer who loves building clean, functional, and beautiful things. I enjoy solving hard problems and learning new technologies along the way."
-  },
-  "skills": {
-    "title": "Skills",
-    "tech":  "Technologies I work with"
+    "bio": "I'm a passionate developer who loves building clean, functional, and beautiful things. I enjoy solving hard problems and learning new technologies along the way."
   },
   "works": {
-    "title":       "Works",
-    "subtitle":    "A selection of things I've built.",
-    "viewProject": "View project →",
-    "viewAll":     "View all works →",
-    "back":        "Back"
+    "title": "Works"
   },
   "cv": {
-    "title":          "CV",
-    "experience":     "Experience",
-    "education":      "Education",
+    "experience": "Experience",
+    "education": "Education",
     "certifications": "Licenses & certifications",
-    "skills":         "Skills",
-    "issued":         "Issued",
-    "back":           "Back"
-  },
-  "contact": {
-    "title":    "Contact",
-    "subtitle": "Have a project in mind? Let's talk.",
-    "name":     "Name",
-    "email":    "Email",
-    "message":  "Message",
-    "send":     "Send Message"
+    "skills": "Skills"
   },
   "footer": {
     "rights": "All rights reserved. Yeu Ha My"

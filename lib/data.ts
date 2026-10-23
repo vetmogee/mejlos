@@ -4,6 +4,7 @@
 
 export const siteConfig = {
   name:         'Duc Anh Nguyen',
+  nickname:     'mejlos',
   email:        'leducthao12345@seznam.cz',
   contactEmail: 'main@mejlos.com',
 }
@@ -63,7 +64,16 @@ export const cv = {
   ],
   education: [
     {
+      school: 'Unicorn University',
+      url:    'https://unicornuniversity.net',
+      field:  '',
+      period: 'Sep 2026 – Present',
+      points: [],
+      tags:   [],
+    },
+    {
       school: 'SPSUL',
+      url:    'https://spsul.cz',
       field:  'Information Technology',
       period: 'Sep 2022 – Sep 2026',
       points: [
@@ -74,7 +84,7 @@ export const cv = {
   ],
   certifications: [
     {
-      name:   'Cambridge English: Advanced (CAE)',
+      name:   'Cambridge English: C1 Advanced (CAE)',
       issuer: 'Cambridge English',
       issued: 'Mar 2026',
     },
@@ -91,7 +101,7 @@ export const works = [
     description: 'Salon booking & management platform. Customers browse and book appointments; salon owners manage calendars, services, and staff.',
     icon:        '📅',
     logo:        null,
-    url:         'https://schedula-murex.vercel.app/',
+    url:         'https://schedula.mejlos.com/',
     tags:        ['School Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Node.js', 'REST API'],
     order:       1,
   },
@@ -121,7 +131,7 @@ export const works = [
     description: 'Modern point-of-sale system — product management, sales tracking with detailed reports, and a streamlined checkout.',
     icon:        '🛒',
     logo:        '/quickcartposlogonobg.png',
-    url:         'https://quickcartpos.vercel.app',
+    url:         'https://quickcartpos.mejlos.com',
     tags:        ['School Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Supabase'],
     order:       4,
   },

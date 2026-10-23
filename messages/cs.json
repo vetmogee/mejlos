@@ -1,46 +1,19 @@
 {
-  "nav": {
-    "about":   "O mně",
-    "skills":  "Dovednosti",
-    "works":   "Tvorba",
-    "contact": "Kontakt"
-  },
   "hero": {
     "greeting": "Ahoj, jsem",
-    "tagline":  "Vývojář & Tvůrce",
-    "cta":      "Zobrazit mé dovednosti"
+    "tagline": "Vývojář & Tvůrce"
   },
   "about": {
-    "title": "O mně",
-    "bio":   "Jsem vášnivý vývojář, který rád tvoří čisté, funkční a krásné věci. Baví mě řešit složité problémy a neustále se učit nové technologie."
-  },
-  "skills": {
-    "title": "Dovednosti",
-    "tech":  "Technologie, se kterými pracuji"
+    "bio": "Jsem vášnivý vývojář, který rád tvoří čisté, funkční a krásné věci. Baví mě řešit složité problémy a neustále se učit nové technologie."
   },
   "works": {
-    "title":       "Tvorba",
-    "subtitle":    "Výběr věcí, které jsem vytvořil.",
-    "viewProject": "Zobrazit projekt →",
-    "viewAll":     "Zobrazit celou tvorbu →",
-    "back":        "Zpět"
+    "title": "Tvorba"
   },
   "cv": {
-    "title":          "Životopis",
-    "experience":     "Zkušenosti",
-    "education":      "Vzdělání",
+    "experience": "Zkušenosti",
+    "education": "Vzdělání",
     "certifications": "Licence a certifikace",
-    "skills":         "Dovednosti",
-    "issued":         "Vydáno",
-    "back":           "Zpět"
-  },
-  "contact": {
-    "title":    "Kontakt",
-    "subtitle": "Máte projekt na mysli? Pojďme si promluvit.",
-    "name":     "Jméno",
-    "email":    "E-mail",
-    "message":  "Zpráva",
-    "send":     "Odeslat zprávu"
+    "skills": "Dovednosti"
   },
   "footer": {
     "rights": "Všechna práva vyhrazena. Yeu Ha My"
