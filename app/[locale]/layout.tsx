@@ -49,7 +49,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
           <div className="h-dvh flex flex-col overflow-hidden">
             <NavBar nickname={siteConfig.nickname} email={siteConfig.contactEmail} linkedin={cv.linkedin} github={cv.github} />
             <main className="flex-1 min-h-0 overflow-hidden">{children}</main>
-            <Footer name={siteConfig.name} rights={t('rights')} />
+            <Footer name={siteConfig.name} rights={t('rights')} instagram={cv.instagram} facebook={cv.facebook} />
           </div>
         </NextIntlClientProvider>
       </body>

@@ -33,6 +33,8 @@ export const techTags = [
 export const cv = {
   linkedin: 'https://www.linkedin.com/in/duc-anh-nguyen-ab0845290/',
   github:   'https://github.com/vetmogee',
+  instagram: 'https://www.instagram.com/duc.anh.ng/',
+  facebook:  'https://www.facebook.com/walmartfaker',
   experience: [
     {
       role:     'Web Developer and Administrator',
