@@ -14,6 +14,15 @@
     "education": "Vzdělání",
     "certifications": "Licence a certifikace",
     "skills": "Dovednosti"
+},
+  "qr": {
+    "title": "Generátor QR kódů",
+    "label": "Text nebo odkaz",
+    "empty": "Začněte psát a vytvoří se QR kód",
+    "tooLong": "Tento text je pro QR kód příliš dlouhý.",
+    "alt": "QR kód pro zadaný text",
+    "downloadPng": "Stáhnout PNG",
+    "downloadSvg": "Stáhnout SVG"
   },
   "footer": {
     "rights": "Všechna práva vyhrazena. Yeu Ha My"

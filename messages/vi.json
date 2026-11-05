@@ -1,6 +1,6 @@
 {
   "hero": {
-    "greeting": "Xin chào, tôi là",
+    "greeting": "Tôi là",
     "tagline": "Nhà phát triển & Nhà sáng tạo"
   },
   "about": {
@@ -14,6 +14,15 @@
     "education": "Học vấn",
     "certifications": "Giấy phép & chứng chỉ",
     "skills": "Kỹ năng"
+  },
+  "qr": {
+    "title": "Tạo mã QR",
+    "label": "Văn bản hoặc liên kết",
+    "empty": "Nhập nội dung để tạo mã QR",
+    "tooLong": "Nội dung này quá dài để tạo mã QR.",
+    "alt": "Mã QR cho nội dung đã nhập",
+    "downloadPng": "Tải PNG",
+    "downloadSvg": "Tải SVG"
   },
   "footer": {
     "rights": "Bản quyền được bảo lưu. Yeu Ha My"

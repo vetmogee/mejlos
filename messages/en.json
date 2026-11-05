@@ -1,6 +1,6 @@
 {
   "hero": {
-    "greeting": "Hello, I'm",
+    "greeting": "Hey, I'm",
     "tagline": "Developer & Creator"
   },
   "about": {
@@ -14,6 +14,15 @@
     "education": "Education",
     "certifications": "Licenses & certifications",
     "skills": "Skills"
+  },
+  "qr": {
+    "title": "QR code generator",
+    "label": "Text or link",
+    "empty": "Start typing to generate a QR code",
+    "tooLong": "This text is too long for a QR code.",
+    "alt": "QR code for the entered text",
+    "downloadPng": "Download PNG",
+    "downloadSvg": "Download SVG"
   },
   "footer": {
     "rights": "All rights reserved. Yeu Ha My"
