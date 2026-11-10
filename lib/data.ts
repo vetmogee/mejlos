@@ -96,9 +96,11 @@ export const cv = {
 // ── Works ─────────────────────────────────────────────────────────────────────
 // url is optional — set to null to hide the link.
 // logo is an image in /public shown instead of the emoji icon when set.
+// slug is the blog page path (/works/<slug>); body is its paragraphs.
 export const works = [
   {
     id:          1,
+    slug:        'schedula',
     title:       'Schedula',
     description: 'Salon booking & management platform. Customers browse and book appointments; salon owners manage calendars, services, and staff.',
     icon:        '📅',
@@ -106,29 +108,44 @@ export const works = [
     url:         'https://schedula.mejlos.com/',
     tags:        ['School Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Node.js', 'REST API'],
     order:       1,
+    body: [
+      'Schedula is a school project: a booking and management platform built for beauty salons.',
+      'Customers can browse salons and book appointments online, while salon owners get a dashboard to manage their calendar, services and staff in one place.',
+    ],
   },
   {
     id:          2,
+    slug:        'fancy-beauty',
     title:       'Fancy Beauty',
     description: 'Premium beauty services website for a salon in the Zurich & Schlieren area of Switzerland.',
     icon:        '✨',
     logo:        '/fancylogolong-BiBxCGFi.png',
     url:         'https://fancybeauty.ch',
-    tags:        ['Personal Project', 'Vite', 'React', 'TypeScript', 'Tailwind', 'Design'],
+    tags:        ['Commission Project', 'Vite', 'React', 'TypeScript', 'Tailwind', 'Design'],
     order:       2,
+    body: [
+      'Fancy Beauty is the website of a premium beauty salon serving the Zurich and Schlieren area in Switzerland.',
+      "The site presents the salon's services and brand, and was built with Vite, React, TypeScript and Tailwind with a focus on design.",
+    ],
   },
   {
     id:          3,
+    slug:        'lyniq-studio',
     title:       'Lyniq Studio',
     description: 'Nail care & beauty studio site for a salon in Děčín, CZ — sharp aesthetic, animated UI.',
     icon:        '💅',
     logo:        '/lyniq2.svg',
     url:         'https://lyniqstudio.cz',
-    tags:        ['Personal Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Animations'],
+    tags:        ['Commission Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Animations'],
     order:       3,
+    body: [
+      'Lyniq Studio is a nail care and beauty studio in Děčín, Czech Republic.',
+      'Its website pairs a sharp, minimal aesthetic with an animated UI, built on Next.js, React, TypeScript and Tailwind.',
+    ],
   },
   {
     id:          4,
+    slug:        'quickcart-pos',
     title:       'QuickCart POS',
     description: 'Modern point-of-sale system — product management, sales tracking with detailed reports, and a streamlined checkout.',
     icon:        '🛒',
@@ -136,5 +153,24 @@ export const works = [
     url:         'https://quickcartpos.mejlos.com',
     tags:        ['School Project', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Supabase'],
     order:       4,
+    body: [
+      'QuickCart POS is a school project: a modern point-of-sale system.',
+      'It covers product management, sales tracking with detailed reports and a streamlined checkout, built on Next.js with Supabase as the backend.',
+    ],
+  },
+  {
+    id:          5,
+    slug:        'masarykova-60',
+    title:       'Masarykova 60',
+    description: 'Pre-launch site for a new residential building in Teplice, CZ — 25 apartments, a bistro, a restaurant and office space, with sign-ups for sales news.',
+    icon:        '🏢',
+    logo:        '/masarykova60-logo.png',
+    url:         'https://masarykova60.cz',
+    tags:        ['Next.js'],
+    order:       5,
+    body: [
+      'Masarykova 60 is the pre-launch website for a new residential building at Masarykova tř. 60 in Teplice, Czech Republic.',
+      'The building will hold 25 apartments, a brunch bistro, an Asian restaurant and an office for rent. The site introduces the project and collects email sign-ups for news about the sales launch. Built with Next.js.',
+    ],
   },
 ]

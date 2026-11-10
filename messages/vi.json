@@ -7,7 +7,11 @@
     "bio": "Tôi là một lập trình viên đam mê, thích xây dựng những thứ gọn gàng, chức năng và đẹp mắt. Tôi thích giải quyết các vấn đề khó và luôn học hỏi những công nghệ mới."
   },
   "works": {
-    "title": "Sản phẩm"
+    "title": "Sản phẩm",
+    "back": "Quay lại",
+    "visit": "Truy cập trang",
+    "stack": "Công nghệ",
+    "schoolProject": "Dự án ở trường"
   },
   "cv": {
     "experience": "Kinh nghiệm",

@@ -7,14 +7,18 @@
     "bio": "Jsem vášnivý vývojář, který rád tvoří čisté, funkční a krásné věci. Baví mě řešit složité problémy a neustále se učit nové technologie."
   },
   "works": {
-    "title": "Tvorba"
+    "title": "Tvorba",
+    "back": "Zpět",
+    "visit": "Navštívit web",
+    "stack": "Technologie",
+    "schoolProject": "Školní projekt"
   },
   "cv": {
     "experience": "Zkušenosti",
     "education": "Vzdělání",
     "certifications": "Licence a certifikace",
     "skills": "Dovednosti"
-},
+  },
   "qr": {
     "title": "Generátor QR kódů",
     "label": "Text nebo odkaz",

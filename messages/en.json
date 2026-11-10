@@ -7,7 +7,11 @@
     "bio": "I'm a passionate developer who loves building clean, functional, and beautiful things. I enjoy solving hard problems and learning new technologies along the way."
   },
   "works": {
-    "title": "Works"
+    "title": "Works",
+    "back": "Back",
+    "visit": "Visit site",
+    "stack": "Built with",
+    "schoolProject": "School project"
   },
   "cv": {
     "experience": "Experience",

@@ -1,12 +1,13 @@
 import { getTranslations } from 'next-intl/server'
 import { siteConfig, techTags, works, cv } from '@/lib/data'
+import { Link } from '@/i18n/navigation'
 
 function Heading({ children }: { children: React.ReactNode }) {
   return <h2 className="text-muted text-[11px] uppercase tracking-widest mb-2 lg:mb-3">{children}</h2>
 }
 
 // The whole CV on one screen: below lg the secondary details (bullet
-// points, bio, project tags) are dropped so it still fits a phone.
+// points, bio) are dropped so it still fits a phone.
 export default async function Page() {
   const t  = await getTranslations('cv')
   const th = await getTranslations('hero')
@@ -72,14 +73,9 @@ export default async function Page() {
             <ul className="space-y-1 lg:space-y-2">
               {works.map(w => (
                 <li key={w.id}>
-                  {w.url ? (
-                    <a href={w.url} target="_blank" rel="noreferrer" className="text-white hover:underline">
-                      {w.title} <span className="text-muted">↗</span>
-                    </a>
-                  ) : (
-                    <span className="text-white">{w.title}</span>
-                  )}
-                  <p className="hidden lg:block text-muted text-xs">{w.tags.slice(1, 4).join(' · ')}</p>
+                  <Link href={`/works/${w.slug}`} className="text-white hover:underline">
+                    {w.title} <span className="text-muted">→</span>
+                  </Link>
                 </li>
               ))}
             </ul>
