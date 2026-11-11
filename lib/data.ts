@@ -95,7 +95,7 @@ export const cv = {
 
 // ── Works ─────────────────────────────────────────────────────────────────────
 // url is optional — set to null to hide the link.
-// logo is an image in /public shown instead of the emoji icon when set.
+// logo is an image in /public shown at the top of the work page; null shows nothing.
 // slug is the blog page path (/works/<slug>); body is its paragraphs.
 export const works = [
   {

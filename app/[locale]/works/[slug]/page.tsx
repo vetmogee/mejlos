@@ -39,11 +39,9 @@ export default async function WorkPage({ params }: Props) {
         </Link>
 
         <header className="mt-8">
-          {work.logo ? (
+          {work.logo && (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={work.logo} alt="" className="block mx-auto h-24 sm:h-32 w-auto max-w-full object-contain mb-8" />
-          ) : (
-            <p className="text-6xl text-center mb-8" aria-hidden>{work.icon}</p>
           )}
           {kind === 'School Project' ? (
             <p className="inline-block text-white text-xs uppercase tracking-widest border border-border rounded-full px-3 py-1 mb-2">
